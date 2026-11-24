@@ -1,0 +1,7 @@
+﻿src/**/bin/
+src/**/obj/
+dist/Rubban_Portable/Logs/
+dist/Rubban_Portable/Data/live_state.json
+*.user
+*.suo
+.vs/

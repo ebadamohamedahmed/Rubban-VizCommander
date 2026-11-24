@@ -1,0 +1,16 @@
+﻿{
+  "SCORE_BAR_LOAD":   [ "TrioCmd(\"page:read BASKETBALL_SCORE_BAR\")" ],
+  "SCORE_BAR_UPDATE": [
+    "TrioCmd(\"page:set_property 01 {TeamAName}\")",
+    "TrioCmd(\"page:set_property 02 {TeamBName}\")",
+    "TrioCmd(\"page:set_property 03 {ScoreA}\")",
+    "TrioCmd(\"page:set_property 04 {ScoreB}\")",
+    "TrioCmd(\"page:set_property 05 {Period}\")"
+  ],
+  "SCORE_BAR_IN":    [ "TrioCmd(\"page:take\")" ],
+  "SCORE_BAR_OUT":   [ "TrioCmd(\"page:take_out\")" ],
+  "TITLE_CARD_SHOW": [ "TrioCmd(\"page:read BASKETBALL_TITLE_CARD\")", "TrioCmd(\"page:take\")" ],
+  "TEAM_LIST_SHOW":  [ "TrioCmd(\"page:read BASKETBALL_TEAM_LIST\")", "TrioCmd(\"page:take\")" ],
+  "COACH_SHOW":      [ "TrioCmd(\"page:read BASKETBALL_COACH\")", "TrioCmd(\"page:take\")" ],
+  "REFEREE_SHOW":    [ "TrioCmd(\"page:read BASKETBALL_REFEREE\")", "TrioCmd(\"page:take\")" ]
+}

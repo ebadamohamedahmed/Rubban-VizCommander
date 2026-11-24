@@ -1,0 +1,14 @@
+﻿{
+  "app_title": "RUBBAN — Multi-Sport Vizrt Commander",
+  "btn_connect": "CONNECT",
+  "btn_score_load": "LOAD SCORE BAR",
+  "btn_score_in": "SCORE IN",
+  "btn_score_out": "SCORE OUT",
+  "btn_title_card": "TITLE CARD",
+  "btn_team_list": "TEAM LIST",
+  "btn_coach": "COACH",
+  "btn_referee": "REFEREE",
+  "btn_import_xlsx": "IMPORT ROSTER (.XLSX)",
+  "status_connected": "Connected:",
+  "status_offline": "Offline:"
+}

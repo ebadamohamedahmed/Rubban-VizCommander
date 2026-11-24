@@ -1,0 +1,49 @@
+﻿{
+  "SCORE_BAR_LOAD": [
+    "page:read_template score"
+  ],
+  "SCORE_BAR_UPDATE": [
+    "page:set_property 01 {TeamAName}",
+    "page:set_property 02 {TeamBName}",
+    "page:set_property 04 {ScoreA}",
+    "page:set_property 03 {ScoreB}",
+    "page:set_property 06 {ExtraTime}"
+  ],
+  "SCORE_BAR_IN":       [ "page:take" ],
+  "SCORE_BAR_OUT":      [ "page:take_out" ],
+  "CLOCK_SET":          [ "page:set_property 05 *TIME SET {ClockSeconds}" ],
+  "TITLE_CARD_SHOW":    [
+    "page:read_template Title_card",
+    "page:set_property 01 {Tournament}",
+    "page:set_property 03 {TeamAName}",
+    "page:set_property 02 {TeamBName}",
+    "page:take"
+  ],
+  "TEAM_LIST_SHOW":     [
+    "page:read_template TeamList",
+    "page:set_property 40 {TeamAName}",
+    "page:set_property 46 {CoachA}",
+    "page:take"
+  ],
+  "COACH_SHOW":         [
+    "page:read_template coach",
+    "page:set_property 1 مدرب الفريق",
+    "page:set_property 2 {CoachA}",
+    "page:set_property 3 {TeamAName}",
+    "page:take"
+  ],
+  "REFEREE_SHOW":       [
+    "page:read_template Refree",
+    "page:set_property 1 {Ref1}",
+    "page:set_property 2 {Ref2}",
+    "page:set_property 3 {Ref3}",
+    "page:take"
+  ],
+  "YELLOW_HOME_SHOW":   [ "page:read_template Yellow_Home", "page:set_property 1 {PlayerNo}", "page:set_property 2 {PlayerName}", "page:take" ],
+  "YELLOW_AWAY_SHOW":   [ "page:read_template Yellow_Away", "page:set_property 1 {PlayerNo}", "page:set_property 2 {PlayerName}", "page:take" ],
+  "RED_HOME_SHOW":      [ "page:read_template Red_Home", "page:set_property 1 {PlayerNo}", "page:set_property 2 {PlayerName}", "page:take" ],
+  "RED_AWAY_SHOW":      [ "page:read_template Red_Away", "page:set_property 1 {PlayerNo}", "page:set_property 2 {PlayerName}", "page:take" ],
+  "SUB_HOME_SHOW":      [ "page:read_template Home_Subsitute2", "page:set_property 1 {InNo}", "page:set_property 2 {InName}", "page:set_property 3 {OutNo}", "page:set_property 4 {OutName}", "page:take" ],
+  "SUB_AWAY_SHOW":      [ "page:read_template Away_Subsitute2", "page:set_property 1 {InNo}", "page:set_property 2 {InName}", "page:set_property 3 {OutNo}", "page:set_property 4 {OutName}", "page:take" ],
+  "PENALTY_SHOW":       [ "page:read_template penalty", "page:set_property 1 {TeamAName}", "page:set_property 4 {TeamBName}", "page:set_property 2 {ScoreA}", "page:set_property 3 {ScoreB}", "page:take" ]
+}

@@ -1,0 +1,14 @@
+﻿{
+  "app_title": "رُبّان — قائد جرافيكس الرياضات",
+  "btn_connect": "اتصال",
+  "btn_score_load": "تحميل شريط النتيجة",
+  "btn_score_in": "إدخال النتيجة",
+  "btn_score_out": "إخراج النتيجة",
+  "btn_title_card": "بطاقة المباراة",
+  "btn_team_list": "تشكيلة الفريق",
+  "btn_coach": "المدرب",
+  "btn_referee": "الحكام",
+  "btn_import_xlsx": "استيراد القائمة (Excel)",
+  "status_connected": "متصل:",
+  "status_offline": "غير متصل:"
+}

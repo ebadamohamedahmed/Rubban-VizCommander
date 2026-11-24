@@ -1,0 +1,1 @@
+﻿{"Id":"futsal","DisplayNameEn":"Futsal","DisplayNameAr":"كرة الصالات","SceneSubfolder":"FUTSAL","VizTemplateFile":"viz_futsal.json","TrioTemplateFile":"trio_futsal.json","ScoreDeltas":[1,-1],"PeriodsEn":["1st Half","2nd Half","ET","PEN"],"PeriodsAr":["الشوط الأول","الشوط الثاني","إضافي","ركلات ترجيح"]}

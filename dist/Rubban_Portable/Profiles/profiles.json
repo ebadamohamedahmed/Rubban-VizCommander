@@ -1,0 +1,36 @@
+{
+  "DefaultProfile": "viz_6800",
+  "PromptTimeoutSeconds": 3,
+  "Profiles": [
+    {
+      "Name": "viz_6800",
+      "Description": "Viz Engine Preview (Port 6800)",
+      "Host": "127.0.0.1",
+      "Port": 6800,
+      "Terminator": "\u0000",
+      "SceneRoot": "2024_SPORTS",
+      "ControlMode": "VizEngine",
+      "MatchMachineNames": []
+    },
+    {
+      "Name": "viz_6100",
+      "Description": "Viz Engine Program (Port 6100)",
+      "Host": "127.0.0.1",
+      "Port": 6100,
+      "Terminator": "\u0000",
+      "SceneRoot": "2024_SPORTS",
+      "ControlMode": "VizEngine",
+      "MatchMachineNames": []
+    },
+    {
+      "Name": "trio_6200",
+      "Description": "Viz Trio Macro Socket (Port 6200)",
+      "Host": "127.0.0.1",
+      "Port": 6200,
+      "Terminator": "\r\n",
+      "SceneRoot": "2024_SPORTS",
+      "ControlMode": "VizTrio",
+      "MatchMachineNames": []
+    }
+  ]
+}

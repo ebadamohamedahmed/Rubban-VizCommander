@@ -1,0 +1,19 @@
+﻿{
+  "SCORE_BAR_LOAD": [
+    "RENDERER SET_OBJECT SCENE*{SceneRoot}/{SportFolder}/SCORE_BAR",
+    "RENDERER*STAGE*SHOW F0"
+  ],
+  "SCORE_BAR_UPDATE": [
+    "RENDERER*TREE*$object*FUNCTION*ControlObject*in SET ON 01 SET {TeamAName}",
+    "RENDERER*TREE*$object*FUNCTION*ControlObject*in SET ON 02 SET {TeamBName}",
+    "RENDERER*TREE*$object*FUNCTION*ControlObject*in SET ON 03 SET {ScoreA}",
+    "RENDERER*TREE*$object*FUNCTION*ControlObject*in SET ON 04 SET {ScoreB}",
+    "RENDERER*TREE*$object*FUNCTION*ControlObject*in SET ON 05 SET {Period}"
+  ],
+  "SCORE_BAR_IN":    [ "RENDERER*STAGE*DIRECTOR*Default START" ],
+  "SCORE_BAR_OUT":   [ "RENDERER*STAGE*DIRECTOR*Default CONTINUE" ],
+  "TITLE_CARD_SHOW": [ "RENDERER SET_OBJECT SCENE*{SceneRoot}/{SportFolder}/Title_card", "RENDERER*STAGE*DIRECTOR*Default START" ],
+  "TEAM_LIST_SHOW":  [ "RENDERER SET_OBJECT SCENE*{SceneRoot}/{SportFolder}/TeamList2", "RENDERER*STAGE*DIRECTOR*Default START" ],
+  "COACH_SHOW":      [ "RENDERER SET_OBJECT SCENE*{SceneRoot}/{SportFolder}/Coach", "RENDERER*STAGE*DIRECTOR*Default START" ],
+  "REFEREE_SHOW":    [ "RENDERER SET_OBJECT SCENE*{SceneRoot}/{SportFolder}/Refree", "RENDERER*STAGE*DIRECTOR*Default START" ]
+}

@@ -1,0 +1,81 @@
+﻿{
+  "SCORE_BAR_LOAD": [
+    "1 RENDERER SET_OBJECT SCENE*{SceneRoot}/FUTSAL/SCORE_BAR",
+    "1 RENDERER*STAGE*DIRECTOR*Default SHOW F0"
+  ],
+  "SCORE_BAR_UPDATE": [
+    "1 SCENE*{SceneRoot}/FUTSAL/SCORE_BAR*TREE*$object*FUNCTION*ControlObject*in SET ON 01 SET {TeamAName}",
+    "1 SCENE*{SceneRoot}/FUTSAL/SCORE_BAR*TREE*$object*FUNCTION*ControlObject*in SET ON 02 SET {TeamBName}",
+    "1 SCENE*{SceneRoot}/FUTSAL/SCORE_BAR*TREE*$object*FUNCTION*ControlObject*in SET ON 03 SET {ScoreA}",
+    "1 SCENE*{SceneRoot}/FUTSAL/SCORE_BAR*TREE*$object*FUNCTION*ControlObject*in SET ON 04 SET {ScoreB}",
+    "1 SCENE*{SceneRoot}/FUTSAL/SCORE_BAR*TREE*$object*FUNCTION*ControlObject*in SET ON 05 SET {TeamAColor}",
+    "1 SCENE*{SceneRoot}/FUTSAL/SCORE_BAR*TREE*$object*FUNCTION*ControlObject*in SET ON 06 SET {TeamBColor}",
+    "1 SCENE*{SceneRoot}/FUTSAL/SCORE_BAR*TREE*$object*FUNCTION*ControlObject*in SET ON 07 SET {TeamALogo}",
+    "1 SCENE*{SceneRoot}/FUTSAL/SCORE_BAR*TREE*$object*FUNCTION*ControlObject*in SET ON 08 SET {TeamBLogo}",
+    "1 SCENE*{SceneRoot}/FUTSAL/SCORE_BAR*TREE*$object*FUNCTION*ControlObject*in SET ON 09 SET {Period}"
+  ],
+  "SCORE_BAR_IN":    [ "1 RENDERER*STAGE*DIRECTOR*Default START" ],
+  "SCORE_BAR_OUT":   [ "1 RENDERER*STAGE*DIRECTOR*Default CONTINUE" ],
+  "TITLE_CARD_SHOW": [
+    "1 RENDERER SET_OBJECT SCENE*{SceneRoot}/FUTSAL/Title_card",
+    "1 SCENE*{SceneRoot}/FUTSAL/Title_card*TREE*$object*FUNCTION*ControlObject*in SET ON 01 SET {Tournament}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Title_card*TREE*$object*FUNCTION*ControlObject*in SET ON 02 SET {Place}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Title_card*TREE*$object*FUNCTION*ControlObject*in SET ON 03 SET {TeamAName}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Title_card*TREE*$object*FUNCTION*ControlObject*in SET ON 04 SET {TeamBName}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Title_card*TREE*$object*FUNCTION*ControlObject*in SET ON 05 SET {TeamALogo}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Title_card*TREE*$object*FUNCTION*ControlObject*in SET ON 06 SET {TeamBLogo}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Title_card*TREE*$object*FUNCTION*ControlObject*in SET ON 07 SET {TeamAColor}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Title_card*TREE*$object*FUNCTION*ControlObject*in SET ON 08 SET {TeamBColor}",
+    "1 RENDERER*STAGE*DIRECTOR*Default START"
+  ],
+  "TEAM_LIST_SHOW": [
+    "1 RENDERER SET_OBJECT SCENE*{SceneRoot}/FUTSAL/TeamList3",
+    "1 SCENE*{SceneRoot}/FUTSAL/TeamList3*TREE*$object*FUNCTION*ControlObject*in SET ON 0 SET {TeamName}",
+    "1 SCENE*{SceneRoot}/FUTSAL/TeamList3*TREE*$object*FUNCTION*ControlObject*in SET ON 1 SET {TeamLogo}",
+    "1 SCENE*{SceneRoot}/FUTSAL/TeamList3*TREE*$object*FUNCTION*ControlObject*in SET ON 2 SET {TeamColor}",
+    "1 RENDERER*STAGE*DIRECTOR*Default START"
+  ],
+  "COACH_SHOW": [
+    "1 RENDERER SET_OBJECT SCENE*{SceneRoot}/FUTSAL/Coach",
+    "1 SCENE*{SceneRoot}/FUTSAL/Coach*TREE*$object*FUNCTION*ControlObject*in SET ON 01 SET {TeamName}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Coach*TREE*$object*FUNCTION*ControlObject*in SET ON 02 SET {CoachName}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Coach*TREE*$object*FUNCTION*ControlObject*in SET ON 03 SET {TeamLogo}",
+    "1 RENDERER*STAGE*DIRECTOR*Default START"
+  ],
+  "REFEREE_SHOW": [
+    "1 RENDERER SET_OBJECT SCENE*{SceneRoot}/FUTSAL/Refree",
+    "1 SCENE*{SceneRoot}/FUTSAL/Refree*TREE*$object*FUNCTION*ControlObject*in SET ON 02 SET {Ref1}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Refree*TREE*$object*FUNCTION*ControlObject*in SET ON 03 SET {Ref2}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Refree*TREE*$object*FUNCTION*ControlObject*in SET ON 04 SET {Ref3}",
+    "1 RENDERER*STAGE*DIRECTOR*Default START"
+  ],
+  "POINT_CARD_SHOW": [
+    "1 RENDERER SET_OBJECT SCENE*{SceneRoot}/FUTSAL/Point_Card",
+    "1 SCENE*{SceneRoot}/FUTSAL/Point_Card*TREE*$object*FUNCTION*ControlObject*in SET ON 02 SET {TeamAName}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Point_Card*TREE*$object*FUNCTION*ControlObject*in SET ON 03 SET {TeamBName}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Point_Card*TREE*$object*FUNCTION*ControlObject*in SET ON 04 SET {ScoreA} - {ScoreB}",
+    "1 RENDERER*STAGE*DIRECTOR*Default START"
+  ],
+  "PENALTY_SHOW": [
+    "1 RENDERER SET_OBJECT SCENE*{SceneRoot}/FUTSAL/Penalty",
+    "1 SCENE*{SceneRoot}/FUTSAL/Penalty*TREE*$object*FUNCTION*ControlObject*in SET ON 1 SET {TeamAName}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Penalty*TREE*$object*FUNCTION*ControlObject*in SET ON 4 SET {TeamBName}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Penalty*TREE*$object*FUNCTION*ControlObject*in SET ON 05 SET {TeamAColor}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Penalty*TREE*$object*FUNCTION*ControlObject*in SET ON 06 SET {TeamBColor}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Penalty*TREE*$object*FUNCTION*ControlObject*in SET ON 07 SET {TeamALogo}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Penalty*TREE*$object*FUNCTION*ControlObject*in SET ON 08 SET {TeamBLogo}",
+    "1 SCENE*{SceneRoot}/FUTSAL/Penalty*TREE*$object*FUNCTION*ControlObject*in SET ON 09 SET {Period}",
+    "1 RENDERER*STAGE*DIRECTOR*Default START"
+  ],
+  "PENALTY_EXTRA_SHOW": [
+    "1 RENDERER SET_OBJECT SCENE*{SceneRoot}/FUTSAL/penalty-extra",
+    "1 SCENE*{SceneRoot}/FUTSAL/penalty-extra*TREE*$object*FUNCTION*ControlObject*in SET ON 1 SET {TeamAName}",
+    "1 SCENE*{SceneRoot}/FUTSAL/penalty-extra*TREE*$object*FUNCTION*ControlObject*in SET ON 4 SET {TeamBName}",
+    "1 SCENE*{SceneRoot}/FUTSAL/penalty-extra*TREE*$object*FUNCTION*ControlObject*in SET ON 05 SET {TeamAColor}",
+    "1 SCENE*{SceneRoot}/FUTSAL/penalty-extra*TREE*$object*FUNCTION*ControlObject*in SET ON 06 SET {TeamBColor}",
+    "1 SCENE*{SceneRoot}/FUTSAL/penalty-extra*TREE*$object*FUNCTION*ControlObject*in SET ON 07 SET {TeamALogo}",
+    "1 SCENE*{SceneRoot}/FUTSAL/penalty-extra*TREE*$object*FUNCTION*ControlObject*in SET ON 08 SET {TeamBLogo}",
+    "1 SCENE*{SceneRoot}/FUTSAL/penalty-extra*TREE*$object*FUNCTION*ControlObject*in SET ON 09 SET {Period}",
+    "1 RENDERER*STAGE*DIRECTOR*Default START"
+  ]
+}
