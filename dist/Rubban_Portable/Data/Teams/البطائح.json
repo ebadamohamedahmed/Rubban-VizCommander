@@ -1,0 +1,128 @@
+{
+  "TeamName": "البطائح",
+  "Coach": "جمال حمزة",
+  "LogoPath": "C:/Users/ebada/Desktop/3G_viz/FDL_NEW/Teams/Al_Bataeh/Logo.png",
+  "ColorPath": "D:/rubban/dist/Rubban_Portable/Assets/Colors/البطائح_FFFF00.png",
+  "Players": [
+    {
+      "Number": "30",
+      "Name": "أيوب المرزوقي",
+      "Role": "GK"
+    },
+    {
+      "Number": "8",
+      "Name": "السيد محمد",
+      "Role": "Main"
+    },
+    {
+      "Number": "11",
+      "Name": "خالد المرزوقي",
+      "Role": "Main"
+    },
+    {
+      "Number": "17",
+      "Name": "براهيما دياكيتي",
+      "Role": "Main (C)"
+    },
+    {
+      "Number": "20",
+      "Name": "عبد الله الرئيسي",
+      "Role": "Main"
+    },
+    {
+      "Number": "23",
+      "Name": "عبد الله الحمادي",
+      "Role": "Main"
+    },
+    {
+      "Number": "27",
+      "Name": "علي المازمي",
+      "Role": "Main"
+    },
+    {
+      "Number": "29",
+      "Name": "ميهاي كوستيا",
+      "Role": "Main"
+    },
+    {
+      "Number": "32",
+      "Name": "محمد كيدي",
+      "Role": "Main"
+    },
+    {
+      "Number": "77",
+      "Name": "عيسى عيسى",
+      "Role": "Main"
+    },
+    {
+      "Number": "90",
+      "Name": "عيسى المرزوقي",
+      "Role": "Main"
+    },
+    {
+      "Number": "16",
+      "Name": "يحيى الشيخ إبراهيم",
+      "Role": "GK"
+    },
+    {
+      "Number": "2",
+      "Name": "ناصر البلوشي",
+      "Role": "Sub"
+    },
+    {
+      "Number": "4",
+      "Name": "سلطان الحمادي",
+      "Role": "Sub"
+    },
+    {
+      "Number": "6",
+      "Name": "عادل الحمادي",
+      "Role": "Sub"
+    },
+    {
+      "Number": "7",
+      "Name": "جمعة فتان",
+      "Role": "Sub"
+    },
+    {
+      "Number": "9",
+      "Name": "فارس الجابري",
+      "Role": "Sub"
+    },
+    {
+      "Number": "10",
+      "Name": "احمد الحمادي",
+      "Role": "Sub"
+    },
+    {
+      "Number": "11",
+      "Name": "احمد الحمادي",
+      "Role": "Sub"
+    },
+    {
+      "Number": "12",
+      "Name": "احمد الحمادي",
+      "Role": "Sub"
+    },
+    {
+      "Number": "13",
+      "Name": "احمد الحمادي13",
+      "Role": "Sub"
+    },
+    {
+      "Number": "14",
+      "Name": "الحمادي14",
+      "Role": "Sub"
+    },
+    {
+      "Number": "15",
+      "Name": "الحمادي15",
+      "Role": "Sub"
+    },
+    {
+      "Number": "مدرب الفريق",
+      "Name": "جمال حمزة",
+      "Role": "Sub"
+    }
+  ]
+}

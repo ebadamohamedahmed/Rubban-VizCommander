@@ -83,24 +83,51 @@ namespace Rubban.App
 
         private void AddBrowseRow(string label, TextBox box, string val, string subDir, ref int y)
         {
+            bool isColorField = subDir.IndexOf("Colors", StringComparison.OrdinalIgnoreCase) >= 0;
             Controls.Add(new Label { Text = label, Bounds = new Rectangle(18, y + 3, 120, 24) });
-            box.SetBounds(145, y, 295, 26);
+            box.SetBounds(145, y, isColorField ? 215 : 295, 26);
             box.Text = val ?? "";
-            var btn = new Button { Text = "...", Bounds = new Rectangle(448, y, 72, 26) };
-            btn.Click += (s, e) =>
+            if (isColorField)
             {
-                string initDir = Path.Combine(_baseDir, subDir);
-                Directory.CreateDirectory(initDir);
-                using (var ofd = new OpenFileDialog { InitialDirectory = initDir, Filter = "Images (*.png;*.jpg)|*.png;*.jpg|All|*.*" })
+                var palBtn = new Button { Text = "Palette", Bounds = new Rectangle(366, y, 76, 26) };
+                palBtn.Click += (s, e) =>
                 {
-                    if (ofd.ShowDialog() == DialogResult.OK)
-                        box.Text = ofd.FileName.Replace("\\", "/");
-                }
-            };
-            Controls.AddRange(new Control[] { box, btn });
+                    using (var dlg = new ColorDialog { FullOpen = true })
+                    {
+                        if (dlg.ShowDialog(this) == DialogResult.OK)
+                            box.Text = ColorSwatchGenerator.CreatePngSwatch(_baseDir, label, dlg.Color);
+                    }
+                };
+                var btn = new Button { Text = "...", Bounds = new Rectangle(448, y, 72, 26) };
+                btn.Click += (s, e) =>
+                {
+                    string initDir = Path.Combine(_baseDir, subDir);
+                    Directory.CreateDirectory(initDir);
+                    using (var ofd = new OpenFileDialog { InitialDirectory = initDir, Filter = "Images (*.png;*.jpg)|*.png;*.jpg|All|*.*" })
+                    {
+                        if (ofd.ShowDialog() == DialogResult.OK)
+                            box.Text = ofd.FileName.Replace("\\", "/");
+                    }
+                };
+                Controls.AddRange(new Control[] { box, palBtn, btn });
+            }
+            else
+            {
+                var btn = new Button { Text = "...", Bounds = new Rectangle(448, y, 72, 26) };
+                btn.Click += (s, e) =>
+                {
+                    string initDir = Path.Combine(_baseDir, subDir);
+                    Directory.CreateDirectory(initDir);
+                    using (var ofd = new OpenFileDialog { InitialDirectory = initDir, Filter = "Images (*.png;*.jpg)|*.png;*.jpg|All|*.*" })
+                    {
+                        if (ofd.ShowDialog() == DialogResult.OK)
+                            box.Text = ofd.FileName.Replace("\\", "/");
+                    }
+                };
+                Controls.AddRange(new Control[] { box, btn });
+            }
             y += 33;
         }
-    }
 
     public class MainForm : Form
     {
@@ -614,3 +641,5 @@ namespace Rubban.App
         }
     }
 }
+}
+

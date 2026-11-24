@@ -1,0 +1,123 @@
+{
+  "TeamName": "الحمرية",
+  "Coach": "زيلكو ماركوف",
+  "LogoPath": "",
+  "ColorPath": "",
+  "Players": [
+    {
+      "Number": "1",
+      "Name": "عبدالله قحطان ناصر",
+      "Role": "GK"
+    },
+    {
+      "Number": "3",
+      "Name": "محمد سبيل موسى",
+      "Role": "Main"
+    },
+    {
+      "Number": "6",
+      "Name": "ايتالو دي سوزا",
+      "Role": "Main (C)"
+    },
+    {
+      "Number": "9",
+      "Name": "محمد سي سوماري",
+      "Role": "Main"
+    },
+    {
+      "Number": "10",
+      "Name": "سيزار لويس دوس",
+      "Role": "Main"
+    },
+    {
+      "Number": "14",
+      "Name": "عبيد محمد سعيد",
+      "Role": "Main"
+    },
+    {
+      "Number": "20",
+      "Name": "إبراهيم محمد",
+      "Role": "Main"
+    },
+    {
+      "Number": "23",
+      "Name": "عبدالله عبدالرحمن",
+      "Role": "Main"
+    },
+    {
+      "Number": "24",
+      "Name": "يوسف عبدالحسين",
+      "Role": "Main"
+    },
+    {
+      "Number": "34",
+      "Name": "محمد ضرار محمد",
+      "Role": "Main"
+    },
+    {
+      "Number": "99",
+      "Name": "يوسف الزجاري لحسناوي",
+      "Role": "Main"
+    },
+    {
+      "Number": "13",
+      "Name": "أحمد محمد زين",
+      "Role": "GK"
+    },
+    {
+      "Number": "55",
+      "Name": "ماجد ناصر حميد",
+      "Role": "GK"
+    },
+    {
+      "Number": "2",
+      "Name": "عامر خليفة حيدر",
+      "Role": "Sub"
+    },
+    {
+      "Number": "4",
+      "Name": "عبدالله فيصل عبدالله",
+      "Role": "Sub"
+    },
+    {
+      "Number": "7",
+      "Name": "سلطان سعيد سويد",
+      "Role": "Sub"
+    },
+    {
+      "Number": "16",
+      "Name": "محمد جلال محمود",
+      "Role": "Sub"
+    },
+    {
+      "Number": "22",
+      "Name": "محمد عيسى جاسم",
+      "Role": "Sub"
+    },
+    {
+      "Number": "37",
+      "Name": "كوادجو أليكسيس كوفي",
+      "Role": "Sub"
+    },
+    {
+      "Number": "39",
+      "Name": "مانع عايض علي",
+      "Role": "Sub"
+    },
+    {
+      "Number": "57",
+      "Name": "محمد انيس بخوش",
+      "Role": "Sub"
+    },
+    {
+      "Number": "90",
+      "Name": "ياموسا كامارا",
+      "Role": "Sub"
+    },
+    {
+      "Number": "مدرب الفريق",
+      "Name": "زيلكو ماركوف",
+      "Role": "Sub"
+    }
+  ]
+}

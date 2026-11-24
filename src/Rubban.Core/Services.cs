@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.Drawing;
+using System.Drawing.Imaging;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
@@ -129,6 +131,20 @@ namespace Rubban.Core
 
     public static class ExcelRosterImporter
     {
+        private static string Val(IXLWorksheet ws, int row, int col)
+        {
+            var cell = ws.Cell(row, col);
+            if (cell.IsMerged())
+            {
+                var range = cell.MergedRange();
+                return range.FirstCell().GetFormattedString().Trim();
+            }
+            string s = cell.GetFormattedString().Trim();
+            if (string.IsNullOrWhiteSpace(s))
+                s = (cell.Value.ToString() ?? "").Trim();
+            return s;
+        }
+
         public static void CreateBlankTemplate(string xlsxPath)
         {
             using (var wb = new XLWorkbook())
@@ -151,21 +167,102 @@ namespace Rubban.Core
             using (var wb = new XLWorkbook(xlsxPath))
             {
                 var ws = wb.Worksheet(1);
-                roster.TeamName = ws.Cell("B1").GetString().Trim();
-                roster.Coach    = ws.Cell("B2").GetString().Trim();
-                int row = 5;
-                while (!ws.Cell(row, 1).IsEmpty() || !ws.Cell(row, 2).IsEmpty())
+                string c1 = Val(ws, 1, 3);
+                string c2Header = Val(ws, 2, 3);
+                string c3Val = Val(ws, 3, 3);
+
+                bool isListLayout = !string.IsNullOrWhiteSpace(c1) &&
+                                    (c2Header.Contains("اسم") || !string.IsNullOrWhiteSpace(c3Val));
+
+                if (isListLayout)
                 {
-                    roster.Players.Add(new PlayerEntry
+                    roster.TeamName = c1;
+                    for (int r = ws.LastRowUsed()?.RowNumber() ?? 27; r >= 1; r--)
                     {
-                        Number = ws.Cell(row, 1).GetString().Trim(),
-                        Name   = ws.Cell(row, 2).GetString().Trim(),
-                        Role   = string.IsNullOrWhiteSpace(ws.Cell(row, 3).GetString()) ? "Main" : ws.Cell(row, 3).GetString().Trim()
-                    });
-                    row++;
+                        string labelColD = Val(ws, r, 4);
+                        string valColC = Val(ws, r, 3);
+                        if (labelColD.Contains("مدرب") && !string.IsNullOrWhiteSpace(valColC))
+                        {
+                            roster.Coach = valColC;
+                            break;
+                        }
+                    }
+                    if (string.IsNullOrWhiteSpace(roster.Coach))
+                        roster.Coach = Val(ws, 27, 3);
+
+                    string currentSection = "Main";
+                    int lastRow = Math.Max(30, ws.LastRowUsed()?.RowNumber() ?? 30);
+                    for (int r = 3; r <= lastRow; r++)
+                    {
+                        string secCell = Val(ws, r, 6);
+                        if (!string.IsNullOrWhiteSpace(secCell))
+                            currentSection = secCell.Contains("البدلاء") ? "Sub" : "Main";
+
+                        string gk = Val(ws, r, 1);
+                        string cap = Val(ws, r, 2);
+                        string pName = Val(ws, r, 3);
+                        string pNum = Val(ws, r, 4);
+
+                        if (string.IsNullOrWhiteSpace(pName) && string.IsNullOrWhiteSpace(pNum))
+                            continue;
+                        if (pName.Contains("مدرب")) continue;
+
+                        string role = currentSection;
+                        if (gk.Equals("G", StringComparison.OrdinalIgnoreCase)) role = "GK";
+                        if (cap.Equals("C", StringComparison.OrdinalIgnoreCase)) role += " (C)";
+
+                        roster.Players.Add(new PlayerEntry
+                        {
+                            Number = pNum,
+                            Name   = pName,
+                            Role   = role
+                        });
+                    }
+                }
+                else
+                {
+                    roster.TeamName = Val(ws, 1, 2);
+                    roster.Coach    = Val(ws, 2, 2);
+                    int row = 5;
+                    while (!string.IsNullOrWhiteSpace(Val(ws, row, 1)) || !string.IsNullOrWhiteSpace(Val(ws, row, 2)))
+                    {
+                        string rl = Val(ws, row, 3);
+                        roster.Players.Add(new PlayerEntry
+                        {
+                            Number = Val(ws, row, 1),
+                            Name   = Val(ws, row, 2),
+                            Role   = string.IsNullOrWhiteSpace(rl) ? "Main" : rl
+                        });
+                        row++;
+                    }
                 }
             }
             return roster;
+        }
+    }
+
+    public static class ColorSwatchGenerator
+    {
+        public static string CreatePngSwatch(string baseDir, string label, Color color, int size = 256)
+        {
+            string colorsDir = Path.Combine(baseDir, "Assets", "Colors");
+            Directory.CreateDirectory(colorsDir);
+
+            string safeLabel = string.IsNullOrWhiteSpace(label) ? "team" : string.Concat(label.Split(Path.GetInvalidFileNameChars())).Trim();
+            if (string.IsNullOrWhiteSpace(safeLabel)) safeLabel = "team";
+
+            string hex = $"{color.R:X2}{color.G:X2}{color.B:X2}";
+            string fileName = $"{safeLabel}_{hex}.png";
+            string fullPath = Path.Combine(colorsDir, fileName);
+
+            using (var bmp = new Bitmap(size, size))
+            using (var g = Graphics.FromImage(bmp))
+            {
+                g.Clear(color);
+                bmp.Save(fullPath, ImageFormat.Png);
+            }
+
+            return fullPath.Replace("\\", "/");
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Rubban.App
         private readonly TextBox _txtCoach = new TextBox();
         private readonly TextBox _txtLogo = new TextBox();
         private readonly TextBox _txtColor = new TextBox();
+        private readonly Panel _pnlColorPreview = new Panel();
         private readonly DataGridView _grid = new DataGridView();
         private List<TeamRoster> _savedTeams = new List<TeamRoster>();
 
@@ -46,7 +47,7 @@ namespace Rubban.App
             btnOpenFile.Click += (s, e) => OpenExistingFile();
 
             var btnNew = new Button { Text = isRtl ? "فريق جديد" : "New", Bounds = new Rectangle(480, 12, 80, 28) };
-            btnNew.Click += (s, e) => { _txtTeamName.Text = ""; _txtCoach.Text = ""; _txtLogo.Text = ""; _txtColor.Text = ""; _grid.Rows.Clear(); };
+            btnNew.Click += (s, e) => { _txtTeamName.Text = ""; _txtCoach.Text = ""; _txtLogo.Text = ""; _txtColor.Text = ""; _pnlColorPreview.BackColor = Color.White; _grid.Rows.Clear(); };
 
             var btnTpl = new Button { Text = isRtl ? "توليد قالب Excel" : "Blank .XLSX", Bounds = new Rectangle(566, 12, 135, 28) };
             btnTpl.Click += (s, e) =>
@@ -72,9 +73,16 @@ namespace Rubban.App
             var btnLogo = new Button { Text = "...", Bounds = new Rectangle(315, 83, 35, 26) };
             btnLogo.Click += (s, e) => BrowseImage(_txtLogo, "Assets\\Logos");
 
-            var lblColor = new Label { Text = isRtl ? "اللون:" : "Color:", Bounds = new Rectangle(365, 86, 65, 24) };
-            _txtColor.Bounds = new Rectangle(435, 83, 225, 26);
-            var btnColor = new Button { Text = "...", Bounds = new Rectangle(666, 83, 35, 26) };
+            var lblColor = new Label { Text = isRtl ? "اللون:" : "Color:", Bounds = new Rectangle(365, 86, 55, 24) };
+            _txtColor.Bounds = new Rectangle(422, 83, 175, 26);
+            _pnlColorPreview.SetBounds(602, 83, 26, 26);
+            _pnlColorPreview.BorderStyle = BorderStyle.FixedSingle;
+            _pnlColorPreview.BackColor = Color.White;
+
+            var btnPalette = new Button { Text = isRtl ? "باليتة" : "Palette", Bounds = new Rectangle(632, 83, 44, 26) };
+            btnPalette.Click += (s, e) => PickPaletteColor(_txtColor, _pnlColorPreview, _txtTeamName.Text);
+
+            var btnColor = new Button { Text = "...", Bounds = new Rectangle(679, 83, 22, 26) };
             btnColor.Click += (s, e) => BrowseImage(_txtColor, "Assets\\Colors");
 
             _grid.Bounds = new Rectangle(15, 122, 686, 385);
@@ -107,10 +115,21 @@ namespace Rubban.App
             Controls.AddRange(new Control[] {
                 lblSaved, _cmbSaved, btnOpenFile, btnNew, btnTpl,
                 lblName, _txtTeamName, lblCoach, _txtCoach,
-                lblLogo, _txtLogo, btnLogo, lblColor, _txtColor, btnColor,
+                lblLogo, _txtLogo, btnLogo, lblColor, _txtColor, _pnlColorPreview, btnPalette, btnColor,
                 _grid, btnSave, btnUseA, btnUseB
             });
             RefreshSavedList();
+        }
+
+        private void PickPaletteColor(TextBox pathBox, Panel preview, string teamLabel)
+        {
+            using (var dlg = new ColorDialog { FullOpen = true, Color = preview.BackColor })
+            {
+                if (dlg.ShowDialog(this) != DialogResult.OK) return;
+                preview.BackColor = dlg.Color;
+                string label = string.IsNullOrWhiteSpace(teamLabel) ? "team" : teamLabel.Trim();
+                pathBox.Text = ColorSwatchGenerator.CreatePngSwatch(_baseDir, label, dlg.Color);
+            }
         }
 
         private void OpenExistingFile()
